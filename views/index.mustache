@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="../public/styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<h3>My ToDo list</h3>
+
+<div> 
+
+<form action="/todo" method="post">
+<input type="text" name="todolist" 
+placeholder="Add a todo">
+<button>Add a todo</button>
+
+</form>
+
+</div>
+{{#todos}}
+<form action="/done" method="post">
+<button name="done" value="{{.}}">Mark Completed</button>
+{{.}}
+</form>
+{{/todos}}
+<div>
+<h3>Done</h3>
+<ul>
+{{#done}}
+<li>{{.}}</li>
+{{/done}}
+</ul>
+</div>
+</body>
+</html>
